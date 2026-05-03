@@ -1,0 +1,17 @@
+.env
+
+# Design output files — keep designs/ dir but ignore generated artifacts
+designs/**/*.kicad_pcb
+designs/**/*.kicad_pro
+designs/**/*.kicad_sch
+designs/**/*.kicad_pcb-bak
+designs/**/gerbers/
+designs/**/__pycache__/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node
+node_modules/

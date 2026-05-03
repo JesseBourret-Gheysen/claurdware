@@ -1,0 +1,35 @@
+{
+  "mcpServers": {
+
+    "pcbparts": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://pcbparts.dev/mcp"]
+    },
+
+    "kicad": {
+      "command": "docker",
+      "args": ["exec", "-i", "claurdware", "node", "/opt/KiCAD-MCP-Server/dist/index.js"],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "info"
+      }
+    },
+
+    "kicad-seeed": {
+      "command": "docker",
+      "args": [
+        "exec", "-i", "claurdware",
+        "/opt/venv/bin/python3", "-m", "kicad_mcp_server"
+      ],
+      "env": {
+        "PYTHONPATH": "/opt/seeed-kicad-mcp/src"
+      }
+    },
+
+    "eda-tools": {
+      "command": "npx",
+      "args": ["-y", "eda-mcp"]
+    }
+
+  }
+}

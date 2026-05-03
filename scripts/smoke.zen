@@ -1,0 +1,14 @@
+# Minimal LED + resistor smoke test for Zener pipeline verification
+R1 = Component(
+    symbol='Device:R', ref='R', value='330R',
+    footprint='Resistor_SMD:R_0402_1005Metric'
+)
+LED1 = Component(
+    symbol='Device:LED', ref='D',
+    footprint='LED_SMD:LED_0402_1005Metric'
+)
+vcc = Net('VCC')
+gnd = Net('GND')
+R1[1] += vcc
+R1[2] += LED1['A']
+LED1['K'] += gnd

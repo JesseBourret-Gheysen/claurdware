@@ -1,0 +1,17 @@
+services:
+  claurdware:
+    image: claurdware:latest
+    build: .
+    container_name: claurdware
+    restart: unless-stopped
+    volumes:
+      - ./designs:/designs
+      - kicad-data:/root/KiCad
+    env_file:
+      - path: .env
+        required: false
+    tty: true
+    stdin_open: true
+
+volumes:
+  kicad-data:
